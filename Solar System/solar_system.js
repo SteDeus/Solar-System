@@ -44,6 +44,8 @@ window.onload = function() {
 
 		try {
 			celBodies[actualView].orbit.visible = false;
+		} catch(e) {}
+		try {
 			celBodies[before].orbit.visible = true;
 		} catch(e) {}
 
@@ -108,26 +110,26 @@ window.onload = function() {
 	focus.push( merc_focus = new CelestialBody(merc.dim/2, coresFold + 'core.png', false, 0, 365*165/88, 14, sun) );
 	celBodies.push( venus = new CelestialBody(0.2, planetsFold + 'venus.jpg', true, 365*165/116.75, 365*165/225, 20, sun) );
 	focus.push( venus_focus = new CelestialBody(venus.dim/2, coresFold + 'core.png', false, 0, 365*165/225, 20, sun) );
-	celBodies.push( earth = new CelestialBody(0.5, planetsFold + 'earth.jpg', true, 365*165, 165, 26, sun) );
+	celBodies.push( earth = new CelestialBody(0.65, planetsFold + 'earth.jpg', true, 365*165, 165, 26, sun) );
 	focus.push( earth_focus = new CelestialBody(earth.dim/2, coresFold + 'core.png', false, 0, 165, 26, sun) );
-	celBodies.push( moon = new CelestialBody(0.1, satsFold + 'moon.jpg', true, 0, 365*165/27.5, 0.3, earth) );
-	focus.push( moon_focus = new CelestialBody(moon.dim/2, coresFold + 'core.png', false, 0, 365*165/27.5, 0.3, earth) );
-	celBodies.push( mars = new CelestialBody(0.45, planetsFold + 'mars.jpg', true, 365*165/1.06, 165/1.9, 34, sun) );
-	focus.push( mars_focus = new CelestialBody(mars.dim/2, coresFold + 'core.png', false, 0, 165/1.9, 34, sun) );
-	celBodies.push( jup = new CelestialBody(5, planetsFold + 'jupiter.jpg', true, (24/10)*365*165, 165/12, 44, sun) );
-	focus.push( jup_focus = new CelestialBody(jup.dim/2, coresFold + 'core.png', false, 0, 165/12, 44, sun) );
+	celBodies.push( moon = new CelestialBody(0.17, satsFold + 'moon.jpg', true, 0, 365*165/27.5, 0.6, earth) );
+	focus.push( moon_focus = new CelestialBody(moon.dim/2, coresFold + 'core.png', false, 0, 365*165/27.5, 0.6, earth) );
+	celBodies.push( mars = new CelestialBody(0.45, planetsFold + 'mars.jpg', true, 365*165/1.06, 165/1.9, 35, sun) );
+	focus.push( mars_focus = new CelestialBody(mars.dim/2, coresFold + 'core.png', false, 0, 165/1.9, 35, sun) );
+	celBodies.push( jup = new CelestialBody(5, planetsFold + 'jupiter.jpg', true, (24/10)*365*165, 165/12, 45, sun) );
+	focus.push( jup_focus = new CelestialBody(jup.dim/2, coresFold + 'core.png', false, 0, 165/12, 45, sun) );
 	celBodies.push( gan = new CelestialBody(0.25, satsFold + 'ganymede.jpg', true, 0, 165*365/7, 3.8, jup) );
 	focus.push( gan_focus = new CelestialBody(gan.dim/2, coresFold + 'core.png', false, 0, 165*365/7, 3.8, jup) );
-	celBodies.push( saturn = new CelestialBody(4.8, planetsFold + 'saturn.jpg', true, (24/11)*365*165, 165/29, 63, sun) );
-	focus.push( saturn_focus = new CelestialBody(saturn.dim/2, coresFold + 'core.png', false, 0, 165/29, 63, sun) );
-	celBodies.push( uranus = new CelestialBody(2.1, planetsFold + 'uranus.jpg', true, (24/17)*365*165, 165/84, 84, sun) );
-	focus.push( uranus_focus = new CelestialBody(uranus.dim/2, coresFold + 'core.png', false, 0, 165/84, 84, sun) );
-	celBodies.push( nep = new CelestialBody(2.1, planetsFold + 'neptune.jpg', true, (24/16)*365*165, 1, 110, sun) );
-	focus.push( nep_focus = new CelestialBody(nep.dim/2, coresFold + 'core.png', false, 0, 1, 110, sun) );
-	celBodies.push( triton = new CelestialBody(0.1, satsFold + 'triton.png', true, 0, -(365*165/6), 1.6, nep) );
+	celBodies.push( saturn = new CelestialBody(4.8, planetsFold + 'saturn.jpg', true, (24/11)*365*165, 165/29, 64, sun) );
+	focus.push( saturn_focus = new CelestialBody(saturn.dim/2, coresFold + 'core.png', false, 0, 165/29, 64, sun) );
+	celBodies.push( uranus = new CelestialBody(2.1, planetsFold + 'uranus.jpg', true, (24/17)*365*165, 165/84, 85, sun) );
+	focus.push( uranus_focus = new CelestialBody(uranus.dim/2, coresFold + 'core.png', false, 0, 165/84, 85, sun) );
+	celBodies.push( nep = new CelestialBody(2.1, planetsFold + 'neptune.jpg', true, (24/16)*365*165, 1, 111, sun) );
+	focus.push( nep_focus = new CelestialBody(nep.dim/2, coresFold + 'core.png', false, 0, 1, 111, sun) );
+	celBodies.push( triton = new CelestialBody(0.35, satsFold + 'triton.png', true, 0, -(365*165/6), 1.6, nep) );
 	focus.push( triton_focus = new CelestialBody(triton.dim/2, coresFold + 'core.png', false, 0, -(365*165/6), 1.6, nep) );
-	celBodies.push( pluto = new CelestialBody(0.1, planetsFold + 'pluto.jpg', true, 365*165/8.3, 0.67, 141, sun) );
-	focus.push( pluto_focus = new CelestialBody(pluto.dim/2, coresFold + 'core.png', false, 0, 0.67, 141, sun) );
+	celBodies.push( pluto = new CelestialBody(0.1, planetsFold + 'pluto.jpg', true, 365*165/8.3, 0.67, 142, sun) );
+	focus.push( pluto_focus = new CelestialBody(pluto.dim/2, coresFold + 'core.png', false, 0, 0.67, 142, sun) );
 
 	// Creazione dell'anello di saturno, fatto sfruttanso la stessa funzione che crea le orbite
 	makeOrbit(saturn, 6.7, 1.8, satsFold + 'saturn_ring.png');
@@ -195,7 +197,7 @@ window.onload = function() {
 
 		}
 
-        console.log("Rendering");
+		console.log("Rendering");
 
     }
 
