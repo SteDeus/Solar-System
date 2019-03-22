@@ -14,7 +14,7 @@ var makeOrbit = function (center, celDistance, orbitDim, img) {
     var orbit = new THREE.Mesh( geometry, material );
 
     center.celShape.add( orbit );
-    orbit.rotation.x = 3.141592653589793 / 2; // di default è verticale, percio' la ruoto di 90 gradi
+    orbit.rotation.x = 3.141592653589793 / 2; // di default e' verticale, percio' la ruoto di 90 gradi
     return orbit;
 }
 
@@ -23,11 +23,12 @@ var baseCelBody = Object.defineProperties( {}, {
 
     // Raggio sfera
     dim: { value: 0, writable: true, enumerable: false, configurable: false },
-    // Moltiplicatore velocità del moto di rotazione
+    shadow: { value: false, writable: true, enumerable: false, configurable: false },
+    // Moltiplicatore velocita' del moto di rotazione
     daySpeedMod: { value: 0, writable: true, enumerable: false, configurable: false },
-    // Moltiplicatore velocità del moto di rivoluzione
+    // Moltiplicatore velocita' del moto di rivoluzione
     yearSpeedMod: { value: 0, writable: true, enumerable: false, configurable: false },
-    // Distanza rispetto al suo centro di gravità
+    // Distanza rispetto al suo centro di gravita'
     distance: { value: 0, writable: true, enumerable: false, configurable: false },
     // Il suo centro di gravita'
     gravCenter: { value: null, writable: true, enumerable: false, configurable: false },
@@ -44,8 +45,8 @@ var baseCelBody = Object.defineProperties( {}, {
                 this.celShape.matrix = rot.multiply(rot);
             } else {
                 // number*true = number /---/ number*false = 0
-                // Se è un pianeta, il moto di rivoluzione e' calcolato moltiplicando la velocità
-                // minima standard per il proprio modificatore sottraendo la velocità di rotazione del
+                // Se e' un pianeta, il moto di rivoluzione e' calcolato moltiplicando la velocita'
+                // minima standard per il proprio modificatore sottraendo la velocita' di rotazione del
                 // proprio centro gravitazionale che altrimenti andrebbe a sommarsi.
                 // Se si tratta di un "focus" tengo conto che potrebbe essere quello del sole che non
                 // possiede un gravCenter esattamente come il Sole.
@@ -61,20 +62,22 @@ var baseCelBody = Object.defineProperties( {}, {
     }
 });
 
-var CelestialBody = function (dim, img, shadow, daySpeedMod, yearSpeedMod, distance, gravCenter) {
+var CelestialBody = function (dim, img, shadow, daySpeedMod, yearSpeedMod, distance, gravCenter, name) {
 
-    // Sovrascrivo il valore di default con quello presente nel campo, se c'è
+    // Sovrascrivo il valore di default con quello presente nel campo, se c'e'
     this.dim = dim;
     this.daySpeedMod = daySpeedMod;
     this.yearSpeedMod = yearSpeedMod;
     this.distance = distance;
     this.gravCenter = gravCenter;
+    this.shadow = shadow;
+    this.name = name;
 
     // Creo l'lemento di scena
     var geometry = new THREE.SphereGeometry( dim, 64, 64 );
     var texture = new THREE.TextureLoader().load(img);
     var material;
-    if (shadow) {   // se non è il Sole o un focus, creo un "LambertMaterial" e la sua orbita
+    if (shadow) {   // se non e' il Sole o un focus, creo un "LambertMaterial" e la sua orbita
         material = new THREE.MeshLambertMaterial( {map: texture} );
         this.orbit = makeOrbit(this.gravCenter, this.distance + this.gravCenter.dim, 0.05, orbitsFold + 'orbit.jpg');
     }
