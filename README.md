@@ -10,4 +10,4 @@ This involves some issues: Pluto is too small, some planet are too fast, others 
 Then I decided to implement the chance to move into the universe through mouse inputs.
 By the way I realized that controls was a little odd, so I fixed it adding buttons that allows you to select the celestial body you prefer to observe.
 The last thing I implemented was the buttons you can use to increase or decrease rotations speed.
-Here a demo: http://amazetest.altervista.org/SolarSystem/solar_system.html
+Here a demo: http://amazetest.altervista.org/OddThings/SolarSystem/index.html
